@@ -1,0 +1,605 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "5bfdb15b-43bd-44e2-841f-32d0830142bd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(5, 4)"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Current inventory\n",
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "arr.shape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "a5886f81-1c3a-4209-baf9-40bcd089e48c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr.ndim"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "56986148-3752-45fd-a1ca-f4f83092b427",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dtype('int32')"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr.dtype"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "fd046b05-b366-43cc-a3b0-7b322eb6ba50",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "20"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr.size"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "be5e7ca4-3d85-44bf-95ce-4c6255402453",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "arr.itemsize"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "a916053b-6282-45d4-9f58-a30b4e5052f2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[100 200 150 300]\n",
+      " [ 50  60  40  80]\n",
+      " [260 360 310 460]\n",
+      " [200 250 220 270]\n",
+      " [ 80  90  70 100]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr[2]-=10\n",
+    "print(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "5febb515-1ef3-43ae-952e-2cf21e3e2664",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[120 220 170 320]\n",
+      " [ 70  80  60 100]\n",
+      " [280 380 330 480]\n",
+      " [220 270 240 290]\n",
+      " [100 110  90 120]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr+=20\n",
+    "print(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "cbb7df3a-b414-4ed2-b88b-ac553cd08afd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[100 400 150 300]\n",
+      " [ 50 120  40  80]\n",
+      " [300 800 350 500]\n",
+      " [200 500 220 270]\n",
+      " [ 80 180  70 100]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "arr[0:6,1]*=2\n",
+    "print(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "2769addb-7cdf-44bd-8709-c894025e2c04",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[10. 40. 15. 30.]\n",
+      " [ 5. 12.  4.  8.]\n",
+      " [30. 80. 35. 50.]\n",
+      " [20. 50. 22. 27.]\n",
+      " [ 8. 18.  7. 10.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "max_cap=1000\n",
+    "per=(arr/max_cap)*100\n",
+    "\n",
+    "print(per)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "a28c6e69-7f6a-4a08-ad01-d9da22da83fd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 750,  230, 1550,  940,  340])"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "np.sum(arr,axis=1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "100d5638-674f-43d7-a034-f1381ad4b2fc",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 730, 1000,  830, 1250])"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "np.sum(arr,axis=0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "204c31a7-3a53-431f-a7a3-f94d5035c0e6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([300, 400, 350, 500])"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "np.max(arr,axis=0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "081d4c82-1ff6-4f41-ad8b-e46c53b455a2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([100,  40, 300, 200,  70])"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "np.min(arr,axis=1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "4134e4c9-7c00-47a6-a1ae-70043836150c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([187.5,  57.5, 387.5, 235. ,  85. ])"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "np.mean(arr,axis=1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "0493b508-30de-4820-a663-487a37b62b86",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([50, 60, 40, 80])"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "arr[1]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "47e6acb9-66b9-49b8-946e-87b5a009b163",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[100, 200, 150, 300],\n",
+       "       [ 50,  60,  40,  80],\n",
+       "       [300, 400, 350, 500]])"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "arr[:3]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "37418655-6509-44b2-bb6b-0113dcb3f817",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[100, 200],\n",
+       "       [ 50,  60],\n",
+       "       [300, 400]])"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "arr[0:3,0:2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "521ea61f-a3e8-4956-812d-d6b4580bb731",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[220, 270],\n",
+       "       [ 70, 100]])"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "arr[3:6,2:4]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "c4376710-1ac5-4e1f-8374-698e9cf3a3b4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[70]])"
+      ]
+     },
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "arr[4:6,2:3]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "id": "1426cf0e-67f5-46eb-8113-5614fcc63e8d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([100, 220])"
+      ]
+     },
+     "execution_count": 46,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "stock_level=arr[[0,3],[0,2]]\n",
+    "stock_level"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "id": "a40d31cb-c4fa-4f1a-8f67-86fefa460d22",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[100 200 150 300]\n",
+      " [ 50  60  40 100]\n",
+      " [300 400 350 500]\n",
+      " [200 250 220 270]\n",
+      " [ 80  90  70 100]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "arr = np.array([\n",
+    "    [100, 200, 150, 300],  # Product 1\n",
+    "    [50, 60, 40, 80],      # Product 2\n",
+    "    [300, 400, 350, 500],  # Product 3\n",
+    "    [200, 250, 220, 270],  # Product 4\n",
+    "    [80, 90, 70, 100]      # Product 5\n",
+    "])\n",
+    "arr[1,3]=100\n",
+    "print(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5828c185-9b22-43ea-9fc1-1388a6c9c698",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
