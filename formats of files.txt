@@ -1,0 +1,93 @@
+
+
+1)HTML FORMAT FILE:-
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The form element</h1>
+
+<form>
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br>
+  <input type="submit">
+</form>
+</body>
+</html>
+
+
+
+
+2)JSON Format File :-
+
+{
+  "title": "Shyamachi Aai",
+  "author": "Annabhau Sathe",
+  "publishedYear": 2000,
+  "genres": ["Drama", "Action"],
+  "isAvailable": true,
+  "price": 100.99,
+  "reviews": [
+    {
+      "reviewer": "Rahul Pawar",
+      "rating": 5,
+      "comment": "It is very good book ."
+    },
+    {
+      "reviewer": "Swaraj Rajput",
+      "rating": 4,
+      "comment": "Exellent Book for reading."
+    }
+  ]
+}
+
+
+
+3)XML Format
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book>
+        <title>Harry Potter and the Sorcerer's Stone</title>
+        <author>J.K. Rowling</author>
+        <year>1997</year>
+        <genre>Fantasy</genre>
+        <isbn>978-0747532699</isbn>
+    </book>
+    
+    <book>
+        <title>To Kill a Mockingbird</title>
+        <author>Harper Lee</author>
+        <year>1960</year>
+        <genre>Fiction</genre>
+        <isbn>978-0061120084</isbn>
+    </book>
+    
+    <book>
+        <title>1984</title>
+        <author>George Orwell</author>
+        <year>1949</year>
+        <genre>Dystopian</genre>
+        <isbn>978-0451524935</isbn>
+    </book>
+</library>
+
+
+
+4)EXCEL Format
+
+Example of Excel Data (Table Representation):
+
+ID	Name	Age	Department	Salary
+1	Alice	30	HR	50000
+2	Bob	25	IT	60000
+3	Carol	35	Marketing	55000
+4	Dave	40	Finance	70000
+5	Eve	29	IT	62000
+
+
+
